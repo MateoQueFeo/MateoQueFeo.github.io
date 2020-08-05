@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+	<base target="_parent" />
+	<title>ADDS METAR LOOKUP</title>
+	<meta name="author" content="Matthew Lawrence" />
+	<meta name="revised" content="2017/04/24" />
+	<link rel="icon" href="WX.png" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="scripts.js"></script>
+
+<div class="otrqst">
+
+<form class="metars" name="textForm" method="GET" action="http://aviationweather.gov/adds/metars">
+	<input type="text" name="station_ids" size="99" required placeholder="ICAOs separated by spaces..." />
+	<select name="hoursStr">
+		<option>most recent only</option>
+		<option SELECTED>past 1 hours</option>
+		<option>past 2 hours</option>
+		<option>past 3 hours</option>
+		<option>past 4 hours</option>
+		<option>past 5 hours</option>
+		<option>past 6 hours</option>
+		<option>past 12 hours</option>
+		<option>past 18 hours</option>
+		<option>past 24 hours</option>
+		<option>past 36 hours</option>
+	</select>
+	<input type="radio" name="std_trans" value="standard" checked />Raw
+	<input type="radio" name="std_trans" value="translated" />Translated
+	<br />
+	<input type="checkbox" name="chk_metars" checked />METARs
+	<input type="checkbox" name="chk_tafs" checked />TAFs
+	<br />
+	<input name="submitmet" type="submit" value="Submit" />
+	<input type="submit" value="ASF Quicky" onclick="asfQuickyTAFS()" />
+	<input type="submit" value="MIF Quicky" onclick="mifQuickyTAFS()" />
+	<input type="submit" value="Local Quicky" onclick="lclQuickyTAFS()" />
+	<input type="reset" value="Clear" />
+
+</form>
+
+</div>
+
+<iframe name="METARS" class="obstafs" frameborder="0" src="about:blank"></iframe>
